@@ -603,7 +603,19 @@ function GearSetTooltips:RefreshSettingsFrame()
             if table.getn(outfits) > 0 then
                 for _, outfit in ipairs(outfits) do
                     if outfit.Name and outfit.Items then
-                        table.insert(setList, {name = outfit.Name, addon = "Outfitter"})
+                        -- Check if the outfit actually has items
+                        local hasItems = false
+                        for slot, item in pairs(outfit.Items) do
+                            if item.Code and tonumber(item.Code) and tonumber(item.Code) > 0 then
+                                hasItems = true
+                                break
+                            end
+                        end
+                        
+                        -- Only add to list if it has items
+                        if hasItems then
+                            table.insert(setList, {name = outfit.Name, addon = "Outfitter"})
+                        end
                     end
                 end
             end
