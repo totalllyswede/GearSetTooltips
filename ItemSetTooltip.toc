@@ -1,8 +1,0 @@
-## Interface: 11200
-## Title: ItemSet Tooltip
-## Notes: Shows which ItemRack/Outfitter sets an item belongs to
-## Author: Olzon
-## Version: 1.0
-## OptionalDeps: ItemRack, Outfitter
-
-ItemSetTooltip.lua
